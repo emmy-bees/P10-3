@@ -3,11 +3,15 @@
 using namespace std;
 
 void displayRun(int values[], int size);
+bool hasRun(int values[], int size);
 
 int main(void) {
-	const int ARRAYSIZE = 6;
-	int array[ARRAYSIZE] = { 1, 2, 2, 3, 3, 3 };
-	displayRun(array, ARRAYSIZE);
+	const int ARRAYSIZE = 4;
+	int array[ARRAYSIZE] = { 1, 2, 3, 3};
+
+	if (hasRun(array, ARRAYSIZE)) {
+		displayRun(array, ARRAYSIZE);
+	} 
 
 }
 
@@ -24,5 +28,20 @@ void displayRun(int values[], int size) {
 		else {
 			cout << values[i] << " ";
 		}
+	}
+}
+
+bool hasRun(int values[], int size) {
+	int hasRun = 0;
+	for (int i = 0; i < size; i++) {
+		if (values[i] == values[i + 1]) {
+			hasRun++;
+		}
+	}
+	if (hasRun > 0) {
+		return true;
+	}
+	else {
+		return false;
 	}
 }
